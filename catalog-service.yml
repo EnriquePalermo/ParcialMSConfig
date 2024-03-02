@@ -15,7 +15,6 @@ eureka:
     healthcheck:
       enabled: true
   instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
     prefer-ip-address: true
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 5
