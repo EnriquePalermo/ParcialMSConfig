@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: catalog-service
+  datasource:
+    url: 
+    username: 
+    password: 
+    driver-class-name: 
 
 eureka:
   client:
