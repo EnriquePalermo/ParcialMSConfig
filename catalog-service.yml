@@ -1,29 +1,35 @@
 server:
-  port: ${PORT:${SERVER_PORT:0}}
+  port: ${PORT:${SERVER_PORT:0}}  # Puerto en el que se ejecutará el servidor, con un valor predeterminado de 0 si no se proporciona
 
 spring:
   application:
     name: catalog-service
 
-  datasource:
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    driver-class-name: org.h2.Driver
+  datasource: 
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE # URL de la base de datos H2 en memoria
+    driver-class-name: org.h2.Driver   # Clase del controlador JDBC para H2
 
-  MOVIE-SERVICE:
-    ribbon:
-      NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-
+# Configuración de Eureka
 eureka:
+
   client:
     service-url:
-      default-zone: http://localhost:8761/eureka
-    register-with-eureka: true
+      default-zone: http://localhost:8761/eureka # URL predeterminada del servicio de registro Eureka
+    # Habilita el registro y la recuperación de instancias con Eureka
+    register-with-eureka: true 
     fetch-registry: true
+    # Intervalo de tiempo para recuperar el registro de Eureka
     registry-fetch-interval-seconds: 5
+    # Habilita la comprobación de salud de la instancia con Eureka
     healthcheck:
       enabled: true
+      
   instance:
+   # ID único de la instancia, con un valor predeterminado basado en el nombre de la aplicación y un identificador aleatorio
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    # Indica que se prefiere la dirección IP al registrar la instancia con Eureka
     prefer-ip-address: true
+    # Intervalo de renovación de arrendamiento con Eureka
     lease-renewal-interval-in-seconds: 5
+    # Duración de expiración del arrendamiento con Eureka
     lease-expiration-duration-in-seconds: 10
