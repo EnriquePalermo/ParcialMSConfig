@@ -1,18 +1,24 @@
 server:
-  port: 8761
+  port: 8761  # Puerto en el que se ejecutará el servidor
 
 spring:
   application:
     name: eureka-server
 
+# Configuración de Eureka
 eureka:
   client:
+    # Deshabilita el registro y la recuperación de instancias con Eureka
     fetch-registry: 'false'
     register-with-eureka: 'false'
+    # Intervalo de tiempo para recuperar el registro de Eureka
     registry-fetch-interval-seconds: 5
+    # Habilita la comprobación de salud de la instancia con Eureka
     healthcheck:
       enabled: true
+    # URL predeterminada del servicio de registro Eureka
     service-url:
       default-zone: http://localhost:8761/eureka
   instance:
+    # Indica que se prefiere la dirección IP al registrar la instancia con Eureka
     prefer-ip-address: true
