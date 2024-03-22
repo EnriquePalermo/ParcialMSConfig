@@ -1,0 +1,36 @@
+server:
+    port: 0  # Puerto en el que se ejecutará el servidor
+
+spring:
+    application:
+        name: serie-service # Nombre de la aplicación Spring Boot
+    mongodb:
+        embedded:
+            version: 4.0.2 # Version de base de dato embebida Mongo
+    data:
+        mongodb:
+            database: test # Nombre de la base de datos
+            port: 27017 # Puerto de base de datos
+
+eureka:
+    client:
+        # URL predeterminada del servicio de registro Eureka
+        service-url:
+            default-zone: http://localhost:8761/eureka
+        # Habilita el registro y la recuperación de instancias con Eureka
+        register-with-eureka: true
+        fetch-registry: true
+        # Intervalo de tiempo para recuperar el registro de Eureka
+        registry-fetch-interval-seconds: 5
+        # Habilita la comprobación de salud de la instancia con Eureka
+        healthcheck:
+            enabled: true
+    instance:
+        # ID único de la instancia, con un valor predeterminado basado en el nombre de la aplicación y un identificador aleatorio
+        instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+        # Indica que se prefiere la dirección IP al registrar la instancia con Eureka
+        prefer-ip-address: true
+        # Intervalo de renovación de arrendamiento con Eureka
+        lease-renewal-interval-in-seconds: 5
+        # Duración de expiración del arrendamiento con Eureka
+        lease-expiration-duration-in-seconds: 10
