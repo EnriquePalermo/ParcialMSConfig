@@ -1,5 +1,5 @@
 server:
-    port: 0  # Puerto en el que se ejecutará el servidor
+    port: ${PORT:${SERVER_PORT:0}} # Puerto en el que se ejecutará el servidor
 
 spring:
     application:
