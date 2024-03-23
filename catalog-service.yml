@@ -4,13 +4,13 @@ server:
 spring:
   application:
     name: catalog-service
-  # mongodb:
-  #   embedded:
-  #     version: 4.0.2 # Version de base de dato embebida Mongo
-  #   data:
-  #     mongodb:
-  #       database: test # Nombre de la base de datos
-  #       port: 27017 # Puerto de base de datos
+  mongodb:
+    embedded:
+      version: 4.0.2 # Version de base de dato embebida Mongo
+    data:
+      mongodb:
+        database: test # Nombre de la base de datos
+        port: 27017 # Puerto de base de datos
 # Configuración de Eureka
 eureka:
 
