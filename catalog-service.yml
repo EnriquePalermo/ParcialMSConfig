@@ -9,7 +9,7 @@ spring:
       version: 4.0.2 # Version de base de dato embebida Mongo
     data:
       mongodb:
-        database: test2 # Nombre de la base de datos
+        database: test # Nombre de la base de datos
         port: 27017 # Puerto de base de datos
 # Configuración de Eureka
 eureka:
