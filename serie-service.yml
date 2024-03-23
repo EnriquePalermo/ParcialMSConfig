@@ -4,9 +4,9 @@ server:
 spring:
     application:
         name: serie-service # Nombre de la aplicación Spring Boot
-    mongodb:
-        embedded:
-            version: 4.0.2 # Version de base de dato embebida Mongo
+    # mongodb:
+    #     embedded:
+    #         version: 4.0.2 # Version de base de dato embebida Mongo
     data:
         mongodb:
             database: test # Nombre de la base de datos
