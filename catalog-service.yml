@@ -10,7 +10,7 @@ spring:
     data:
       mongodb:
         database: test2 # Nombre de la base de datos
-        port: 27018 # Puerto de base de datos
+        port: 27017 # Puerto de base de datos
 # Configuración de Eureka
 eureka:
 
