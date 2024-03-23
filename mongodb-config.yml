@@ -4,5 +4,5 @@ spring:
       version: 4.0.2
     data:
       mongodb:
-        database: shared-db
+        database: test2
         port: 27017
