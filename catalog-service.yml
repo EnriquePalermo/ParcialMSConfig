@@ -2,6 +2,9 @@ server:
   port: ${PORT:${SERVER_PORT:0}}  # Puerto en el que se ejecutará el servidor, con un valor predeterminado de 0 si no se proporciona
 
 spring:
+  zipkin:
+    base-url: http://localhost:9411/
+    enabled: true
   application:
     name: catalog-service
   mongodb:
@@ -35,3 +38,14 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     # Duración de expiración del arrendamiento con Eureka
     lease-expiration-duration-in-seconds: 10
+    
+management:
+  metrics:
+    export:
+      simple:
+        enabled: false
+      prometheus:
+        enabled: true
+  tracing:
+    sampling:
+      probability: 1.0 # Configuración de la probabilidad de muestreo de trazas
