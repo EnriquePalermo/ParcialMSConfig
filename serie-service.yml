@@ -34,3 +34,14 @@ eureka:
         lease-renewal-interval-in-seconds: 5
         # Duración de expiración del arrendamiento con Eureka
         lease-expiration-duration-in-seconds: 10
+
+management:
+  metrics:
+    export:
+      simple:
+        enabled: false
+      prometheus:
+        enabled: true
+  tracing:
+    sampling:
+      probability: 1.0 # Configuración de la probabilidad de muestreo de trazas
