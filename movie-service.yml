@@ -2,6 +2,9 @@ server:
   port: ${PORT:${SERVER_PORT:0}} # Puerto en el que se ejecutará el servidor
 
 spring:
+  zipkin:
+    base-url: http://localhost:9411/
+    enabled: true
   application:
     name: movie-service
   datasource:  # Configuración del origen de datos
