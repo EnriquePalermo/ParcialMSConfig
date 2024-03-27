@@ -19,6 +19,15 @@ spring:
     generate-ddl: true  # Generación automática de DDL
     show-sql: true # Muestra las consultas SQL en la consola
 
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
+
+queue:
+  name: mensajesQueue
+
 # Configuración de Eureka
 eureka:
   client:
@@ -47,10 +56,11 @@ eureka:
 management:
   metrics:
     export:
-      simple:
+      simple: # Esta línea deshabilita la exportación de métricas al sistema de métricas simple interno de Spring Boot.
         enabled: false
       prometheus:
-        enabled: true
+        enabled: true # Esta línea habilita la exportación de métricas a Prometheus, un sistema de monitoreo y alerta para aplicaciones.
+        #  Prometheus es ampliamente usado para capturar métricas en tiempo real y proporcionar insights sobre el rendimiento y salud de las aplicaciones en entornos de producción.
   tracing:
     sampling:
       probability: 1.0 # Configuración de la probabilidad de muestreo de trazas
